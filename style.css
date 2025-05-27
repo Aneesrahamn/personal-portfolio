@@ -100,6 +100,7 @@ text-align: center;
     text-transform: capitalize;
     font-weight: 600;
     transition: all 0.3s ease-out;
+    cursor: pointer;
 }
 .btn-1:hover{
     color: var(--white);
@@ -418,7 +419,34 @@ text-align: center;
     border: 2px solid var(--main-color);
     width: 7px;
 }
+/* Skills */
+.skill-section{
+     min-height: 100vh;
+    background-color: var(--black-100);
 
+}
+.skills{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    width: 100%;
+
+}
+.skills .skill-left, .skills .skill-right{
+    flex: 0 0 48.48% !important;
+    max-width: 0 0 48.48% !important;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+      box-shadow: var(--shadow-black-100);
+
+}
+
+.skill-left .about-skill, .skill-right .about-skill{
+    width: 100%;
+}
 /****** Services *****/
 .service-section{
     min-height: 100vh;
@@ -443,6 +471,7 @@ text-align: center;
     width: 100%;
     text-align: center;
     transition: all 0.3s ease;
+    cursor: pointer;
 
 }
 .service-section .service-item-inner .icon{
@@ -999,6 +1028,19 @@ footer .copyright-text{
     .about-section .about-content
     {
         flex: 0 0 100% !important; 
+        min-width: 100%;
+    }
+    .skills{
+        /* display: flex; */
+        justify-content: center;
+        flex-direction: column;
+    }
+    .skills .skill-left, .skills .skill-right{
+        flex-direction: column;
+
+    }
+    .skills .skill-left, .skills .skill-right{
+        /* flex: 0 0 100% !important; */
         min-width: 100%;
     }
 }
