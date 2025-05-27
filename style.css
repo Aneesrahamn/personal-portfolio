@@ -1041,6 +1041,6 @@ footer .copyright-text{
     }
     .skills .skill-left, .skills .skill-right{
         /* flex: 0 0 100% !important; */
-        min-width: 100%;
+        min-width: 90%;
     }
 }
