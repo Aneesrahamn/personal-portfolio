@@ -315,6 +315,7 @@ text-align: center;
     top: 0;
     left: 0;
 }
+/* Home section end */
 
 /****** About *****/
 .about-section .about-image, .about-section .about-content{
@@ -370,6 +371,26 @@ text-align: center;
 .about-section .about-content p{
   text-align: justify;
 }
+/* about section animation */
+.slide-in-left, .slide-in-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 1s ease;
+  }
+
+  .slide-in-left {
+    transform: translateX(-100px);
+  }
+
+  .slide-in-right {
+    transform: translateX(100px);
+  }
+
+  .show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+/***** about end *****/
 .skill-item .skill-header{
     position: relative;
 }
@@ -447,6 +468,28 @@ text-align: center;
 .skill-left .about-skill, .skill-right .about-skill{
     width: 100%;
 }
+/**** Skill animation fade up ****/
+.fade-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* for progress */
+.progress-line {
+  width: 0;
+  transition: width 1s ease;
+}
+
+.progress-line.animated {
+  width: attr(data-progress); /* this won't work directly, need JS */
+}
+
+/* skills end */
 /****** Services *****/
 .service-section{
     min-height: 100vh;
@@ -517,6 +560,18 @@ text-align: center;
 .service-section .service-item-inner:hover p{
     color: var(--black-100)
 }
+/* service fade scale animation */
+.fade-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-scale.show {
+  opacity: 1;
+  transform: scale(1);
+}
+/* service part end */
 /****** portfolio *****/
 .portfolio .portfolio-filter{
     flex: 0 0 100%;
@@ -742,6 +797,18 @@ text-align: center;
 
     font-size: 32px;
 }
+/* portfolio fade-slide-up animation */
+.fade-slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.fade-slide-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/*portfolio section end */
 /** ==== pricing ==== **/
 .pricing-item{
     flex: 0 0 33.33%;
@@ -835,6 +902,19 @@ text-align: center;
     padding: 10px 0;
 
 }
+/**** for pricing section animation ****/
+.fade-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.fade-slide-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* pricing end */
 /** ==== contact ==== **/
 .contact-section{
     min-height: 100vh;
@@ -918,6 +998,19 @@ text-align: center;
     text-align: right;
     padding: 0 15px;
 }
+
+/**** Contact section animation ****/
+.fade-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.fade-slide-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /** ==== contact ==== **/
 footer{
     background-color: var(--main-color);

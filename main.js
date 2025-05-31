@@ -152,7 +152,121 @@ function changeItem() {
               }
              })
               
+// end
+
+// about section animation left right scroll
+function AboutrevealOnScroll() {
+  const leftEl = document.querySelector('.slide-in-left');
+  const rightEl = document.querySelector('.slide-in-right');
+  const windowHeight = window.innerHeight;
+
+  [leftEl, rightEl].forEach(el => {
+    if (el) {
+      const elementTop = el.getBoundingClientRect().top;
+      if (elementTop < windowHeight - 100) {
+        el.classList.add('show');
+      }
+    }
+  });
+}
+
+window.addEventListener('scroll', AboutrevealOnScroll);
+window.addEventListener('load', AboutrevealOnScroll);
 
 
+// skills animation fade up
+function skillScrollAnimation() {
+  const elements = document.querySelectorAll('.fade-up');
+  const windowHeight = window.innerHeight;
+
+  elements.forEach(el => {
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      el.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', skillScrollAnimation);
+window.addEventListener('load', skillScrollAnimation);
 
 
+// progress bar animation on scroll
+function animateProgressBars() {
+  const progressBars = document.querySelectorAll('.progress-line');
+  const windowHeight = window.innerHeight;
+
+  progressBars.forEach(bar => {
+    const barTop = bar.getBoundingClientRect().top;
+    if (barTop < windowHeight - 100) {
+      bar.style.width = bar.getAttribute('data-progress');
+    }
+  });
+}
+
+window.addEventListener('scroll', animateProgressBars);
+window.addEventListener('load', animateProgressBars);
+// for service fade scale animation start
+function serviceScrollAnimation() {
+  const elements = document.querySelectorAll('.fade-scale');
+  const windowHeight = window.innerHeight;
+
+  elements.forEach(el => {
+    const elementTop = el.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight - 100) {
+      el.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', serviceScrollAnimation);
+window.addEventListener('load', serviceScrollAnimation);
+// for portfolio fade-slide-up animation
+function portfolioScrollAnimation() {
+  const items = document.querySelectorAll('.fade-slide-up');
+  const windowHeight = window.innerHeight;
+
+  items.forEach(item => {
+    const itemTop = item.getBoundingClientRect().top;
+
+    if (itemTop < windowHeight - 100) {
+      item.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', portfolioScrollAnimation);
+window.addEventListener('load', portfolioScrollAnimation);
+// pricing aniamtion
+function scrollAnimation() {
+  const items = document.querySelectorAll('.fade-slide-up');
+  const windowHeight = window.innerHeight;
+
+  items.forEach(item => {
+    const itemTop = item.getBoundingClientRect().top;
+
+    if (itemTop < windowHeight - 100) {
+      item.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', scrollAnimation);
+window.addEventListener('load', scrollAnimation);
+// contact section animation start
+function scrollAnimation() {
+  const items = document.querySelectorAll('.fade-slide-up');
+  const windowHeight = window.innerHeight;
+
+  items.forEach(item => {
+    const itemTop = item.getBoundingClientRect().top;
+
+    if (itemTop < windowHeight - 100) {
+      item.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', scrollAnimation);
+window.addEventListener('load', scrollAnimation);
