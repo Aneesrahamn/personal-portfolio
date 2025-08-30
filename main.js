@@ -1,13 +1,27 @@
 // ========== Sticky Navbar ========== //
-var navbar = document.querySelector(".navbar");
-window.onscroll = () => {
-  this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
-};
+const navbar = document.querySelector(".navbar");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 20) {
+    navbar.classList.add("sticky");
+  } else {
+    navbar.classList.remove("sticky");
+  }
+});
+/* ------Typing Effect ------- */
+
+ var TypingEffect = new Typed(".typedText",{
+  strings:["Professional Freelancer Web Developer", "Wordpress Developer", "Web Designer", "Frontend Developer"],
+
+  loop:true,
+  typeSpeed:20,
+  backSpeed:20,
+  backDelay:1000,
+ })
 
 // ========== Nav Toggle ========== //
 const navMenu = document.querySelector(".menu");
 const navToggle = document.querySelector(".menu-btn");
-if (navToggle) {
+if (navToggle && navMenu) {
   navToggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
   });
@@ -15,23 +29,41 @@ if (navToggle) {
 
 // ========== Close Menu on Link Click ========== //
 const navLink = document.querySelectorAll(".nav-link");
-navLink.forEach(n => n.addEventListener("click", () => {
-  navMenu.classList.remove("active");
-}));
+navLink.forEach(n =>
+  n.addEventListener("click", () => {
+    if (navMenu) navMenu.classList.remove("active");
+  })
+);
+
+// ========== Back to Top Button ========== //
+const mybutton = document.getElementById("btn-back-to-top");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+});
+mybutton?.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 // ========== Scroll Section Active Link ========== //
 const Section = document.querySelectorAll("section[id]");
 function scrollActive() {
-  const scrollY = window.pageYOffset;
+  const scrollY = window.scrollY;
   Section.forEach(current => {
     const sectionHeight = current.offsetHeight;
     const sectionTop = current.offsetTop - 50;
     const sectionId = current.getAttribute("id");
 
+    const link = document.querySelector(".links a[href*=" + sectionId + "]");
+    if (!link) return;
+
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      document.querySelector(".links a[href*=" + sectionId + "]").classList.add("active");
+      link.classList.add("active");
     } else {
-      document.querySelector(".links a[href*=" + sectionId + "]").classList.remove("active");
+      link.classList.remove("active");
     }
   });
 }
