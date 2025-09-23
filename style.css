@@ -1303,7 +1303,7 @@ footer .link-group a:hover{
 @media(max-width:767px){
     .header-social{
         
-        left: 85%;
+        left: 82%;
     }
     .service-section .service-item,
     .portfolio .portfolio-item,
@@ -1315,6 +1315,7 @@ footer .link-group a:hover{
         flex: 0 0 100% !important; 
         min-width: 100%;
     }
+    
     .skills{
         /* display: flex; */
         justify-content: center;
@@ -1322,10 +1323,14 @@ footer .link-group a:hover{
     }
     .skills .skill-left, .skills .skill-right{
         flex-direction: column;
+        margin-bottom: 20px;
 
     }
     .skills .skill-left, .skills .skill-right{
         /* flex: 0 0 100% !important; */
         min-width: 90%;
+    }
+    .px-4{
+        padding: 0 !important;
     }
 }
