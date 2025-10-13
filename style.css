@@ -61,8 +61,7 @@ text-align: center;
    
 }
 .section-title .sub-title{
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 16px;
     color: var(--main-color);
 
 }
@@ -125,89 +124,56 @@ text-align: center;
     border: none;
 }
 /****** Navbar *****/
+
 .navbar{
     z-index: 999;
-    width: 100%;
+   
     transition: all 0.5s ease;
-
 }
-.navbar.sticky{
-    padding: 12px 25px;
-    background-color: var(--white);
+
+#mainNav.sticky{
+    padding: 12px 0; 
+    background-color: var(--white) !important; 
     box-shadow: var(--shadow-black-100);
 }
-.navbar .logo{
-    flex:  0 0 20% !important;
-}
-.navbar .logo a{
-    color: var(--black-900);
-    width: 30% !important;
+#mainNav.sticky .navbar-brand {
+    color: var(--black-900) !important; 
 }
 
-.navbar .logo a span{
-    color: var(--main-color);
+/* Sticky hone par links ka color change */
+#mainNav.sticky .nav-link {
+    color: var(--main-color) !important; 
 }
-.navbar .links{
-    flex: 0 0 80% !important;
-}
-.navbar .menu .nav-item-header{
-    display: inline-block;
+
+.navbar .nav-item {
     position: relative;
-    margin-left: 36px;
+    text-align: center;
+    margin-left: 20px;
 }
-.navbar .menu .nav-item-header .nav-link{
+
+.navbar .nav-link {
     color: var(--white);
-    font-size: 16px;
-    font-weight: 600;
     display: block;
     text-transform: capitalize;
     padding: 10px 0;
 }
-.navbar.sticky .menu .nav-item-header .nav-link{
-    color: var(--main-color);
 
-}
-.navbar .menu .nav-item-header .nav-link span{
-    width: 60%;
-    height: 2px;
-    background-color: var(--main-color);
+.navbar .nav-link::after {
+    content: '';
     position: absolute;
-    left: 0;
     bottom: 0;
-    border-radius: 50px;
-    opacity: 0;
-    overflow: hidden;
-    transition:  all 0.3s ease-out 0s;
-}
-.navbar .menu .nav-item-header .nav-link span::before{
-    position: absolute;
-    content: '';
-    width: 0;
+    left: 0;
     height: 2px;
-    background-color: var(--white);
-    left: 110%;
-}
-.navbar .menu .nav-item-header .nav-link span::after{
-    position: absolute;
-    content: '';
-    width: 0;
-    height: 2px;
-    background-color: var(--white);
-    left: 140%;
-}
-.navbar.sticky .nav-item-header a span, .navbar.sticky .nav-item-header a span::before, .navbar.sticky .nav-item-header a span::after{
     background-color: var(--main-color);
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s ease-out, opacity 0.3s ease-out;
 }
-.navbar .nav-item-header > .nav-link.active span,.navbar .nav-item-header:hover > .nav-link span{
+
+.navbar .nav-item:hover .nav-link::after,
+.navbar .nav-link.active::after {
+    width: 60%; 
     opacity: 1;
-    visibility: visible;
-    width: 60%;
-}
-.navbar .nav-item-header > .nav-link.active span::before,.navbar .nav-item-header:hover > .nav-link span::before{
-    width: 20%;
-}
-.navbar .nav-item-header > .nav-link.active span::after,.navbar .nav-item-header:hover > .nav-link span::after{
-    width: 15%;
 }
 .menu-btn{
     background-color: var(--main-color);
@@ -1206,54 +1172,51 @@ footer .link-group a:hover{
         display: none;
     }
 }
-@media(max-width:991px){
-    .navbar{
-    width: 100% !important;
-}
-    .navbar .menu{
+@media (max-width: 991.98px) {
+    /* 1. CLEAN NAVBAR COLLAPSE STYLES */
+    .navbar-collapse{
         position: fixed;
-        left: -100%;
-        top: 80px;
-        flex-direction: column;
+        left: 0;
+        top: 65px;
         background-color: var(--main-color);
         width: 100%;
         text-align: center;
-        transform: all 0.5s ease;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.5);
-
-
     }
-
-    .navbar .logo{
-        flex: 0 0 20% !important;
+    
+    #mainNav.sticky .navbar-collapse {
+        background-color: var(--white);
+        box-shadow: none;
     }
-    .navbar .links{
-        flex: 0 0 50% !important;
+    
+    /* Mobile links (vertical) */
+    .navbar-nav {
+        padding: 10px 0;
     }
-    .navbar .menu.active{
-        left: 0;
+    .navbar .nav-item {
+        margin: 6px 0; 
     }
-    .navbar.sticky .menu{
-        background-color:var(--white);
-        top: 65px;
-
+    
+    /* Sticky Mobile Links */
+    #mainNav.sticky .nav-link {
+        color: var(--main-color) !important; 
     }
-    .navbar .menu .nav-item-header{
-        display: block;
-        margin: 6px 0;
-
+    
+    .navbar .nav-link::after {
+        display: none; 
     }
-    .navbar.sticky .menu .nav-item-header .nav-link{
+    .navbar-toggler i {
+        color: var(--white);
+    }
+    #mainNav.sticky .navbar-toggler i {
         color: var(--main-color);
     }
-    .navbar .nav-item-header .nav-link span{
-        display: none;
+}
+/* ---------------------------------------------------------------------- */
+/* CODE (For remaining sections: Home, About, Service, etc.)*/
+/* ---------------------------------------------------------------------- */
 
-    }
-    .navbar .menu-btn{
-        display: block;
-        z-index: 999;
-    }
+@media(max-width:991px){
     .header-social{
         display: block;
         left: 90%;
@@ -1267,7 +1230,7 @@ footer .link-group a:hover{
     .home-text .c-blackk{
         font-size: 44px;
     }
-.home-section .home-text p{
+    .home-section .home-text p{
         font-size: 17px !important;
     }
 
@@ -1300,9 +1263,9 @@ footer .link-group a:hover{
         min-width: 50%;
     }
 }
+
 @media(max-width:767px){
     .header-social{
-        
         left: 82%;
     }
     .service-section .service-item,
@@ -1310,27 +1273,41 @@ footer .link-group a:hover{
     .pricing .pricing-item,
     .contact-section .contact-item,
     .contact-section .w-50,
-    .about-section .about-content
-    {
+    .about-section .about-content {
         flex: 0 0 100% !important; 
         min-width: 100%;
     }
     
     .skills{
-        /* display: flex; */
         justify-content: center;
         flex-direction: column;
     }
-    .skills .skill-left, .skills .skill-right{
+    .skills .skill-left, 
+    .skills .skill-right{
         flex-direction: column;
         margin-bottom: 20px;
-
-    }
-    .skills .skill-left, .skills .skill-right{
-        /* flex: 0 0 100% !important; */
         min-width: 90%;
     }
     .px-4{
         padding: 0 !important;
     }
+    .btn-1{
+    padding: 15px 40px !important;
+
+}
+.btn-1:hover{
+    color: var(--white);
+    background-color: rgba(0,167,142,0.7);
+}
+.btn-2{
+    padding: 15px 40px !important;
+   
+    border: 1px solid var(--main-color);
+    transition: all 0.3s ease-out;
+}
+.btn-2:hover{
+    color: var(--white);
+    background-color: rgba(0,167,142,0.7);
+    border: none;
+}
 }
