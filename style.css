@@ -939,6 +939,7 @@ text-align: center;
 .blog .blogpost .card{
     border: none;
     border-radius: 5%;
+    padding: 12px !important;
 }
 .nav-bg{
     background-color: #fff;
